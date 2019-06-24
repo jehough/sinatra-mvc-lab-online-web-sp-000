@@ -1,5 +1,5 @@
 class PigLatinizer
-
+  attr_accessor :text
 
   def piglatinize
       vowels = %w{a e i o u}
