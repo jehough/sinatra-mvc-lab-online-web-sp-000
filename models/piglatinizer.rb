@@ -1,7 +1,7 @@
 class PigLatinizer
 
 
-  def piglatinize(input)
+  def piglatinize
       vowels = %w{a e i o u}
       input.gsub(/(\A|\s)\w+/) do |str|
               str.strip!
