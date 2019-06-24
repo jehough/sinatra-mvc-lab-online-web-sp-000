@@ -2,11 +2,10 @@ class PigLatinizer
   attr_accessor :text
 
   def piglatinize (phrase)
-    phrase2 = phrase.downcase
-    alpha = ('a'..'z').to_a
-    vowels = %w[a e i o u]
+    alpha = ('a'..'z').to_a + ('A'..'Z').to_a
+    vowels = %w[a e i o u A E I O U]
     consonants = alpha - vowels
-    arr = phrase2.split
+    arr = phrase.split
     translated = arr.map do |str|
       if vowels.include?(str[0])
         str + 'way'
