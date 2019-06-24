@@ -6,7 +6,7 @@ class PigLatinizer
     alpha = ('a'..'z').to_a
     vowels = %w[a e i o u]
     consonants = alpha - vowels
-    arr = phrase.split
+    arr = phrase2.split
     translated = arr.map do |str|
       if vowels.include?(str[0])
         str + 'way'
