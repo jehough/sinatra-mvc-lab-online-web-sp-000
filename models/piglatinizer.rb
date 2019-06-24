@@ -1,22 +1,19 @@
 class PigLatinizer
   attr_accessor :text
 
-  def piglatinize (input)
-    alpha = ('a'..'z').to_a
-    vowels = %w[a e i o u]
-    consonants = alpha - vowels
-    arr= input.split(' ')
-    translated = arr.collect do |str|
-      if vowels.include?(str[0])
-        str + 'way'
-      elsif consonants.include?(str[0]) && consonants.include?(str[1])
-        str[2..-1] + str[0..1] + 'ay'
-      elsif consonants.include?(str[0])
-        str[1..-1] + str[0] + 'ay'
-      else
-        str # return unchanged
-      end
-    end
-    translated.join(' ')
+  def piglatinize(input)
+      vowels = %w{a e i o u}
+      input.gsub(/(\A|\s)\w+/) do |str|
+              str.strip!
+          while not vowels.include? str[0] or (str[0] == 'u' and str[-1] == 'q')
+              str += str[0]
+              str = str[1..-1]
+          end
+          if vowels.include? str[-1]
+            str= ' ' + str + 'way'
+          else
+            str  = ' ' + str + 'ay'
+          end
+      end.strip
   end
 end
