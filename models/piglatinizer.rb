@@ -11,7 +11,7 @@ class PigLatinizer
           end
           if vowels.include? str[-1]
             str= ' ' + str + 'way'
-          else 
+          else
             str  = ' ' + str + 'ay'
           end
       end.strip
