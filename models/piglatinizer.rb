@@ -9,6 +9,8 @@ class PigLatinizer
     translated = arr.map do |str|
       if vowels.include?(str[0])
         str + 'way'
+      elsif consonants.include?(str[0]) && consonants.include?(str[1]) && consonants.include?(str[2])
+        str[3..-1] + str[0..2] + 'ay'
       elsif consonants.include?(str[0]) && consonants.include?(str[1])
         str[2..-1] + str[0..1] + 'ay'
       elsif consonants.include?(str[0])
