@@ -6,7 +6,7 @@ class PigLatinizer
     vowels = %w[a e i o u]
     consonants = alpha - vowels
     arr= input.split(' ')
-    arr.each do |str|
+    translated = arr.collect do |str|
       if vowels.include?(str[0])
         str + 'way'
       elsif consonants.include?(str[0]) && consonants.include?(str[1])
@@ -17,5 +17,6 @@ class PigLatinizer
         str # return unchanged
       end
     end
+    translated.join(' ')
   end
 end
