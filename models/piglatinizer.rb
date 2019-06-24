@@ -9,7 +9,11 @@ class PigLatinizer
               str += str[0]
               str = str[1..-1]
           end
-          str  = ' ' + str + 'ay'
+          if vowels.include? str[-1]
+            str= ' ' + str + 'way'
+          else 
+            str  = ' ' + str + 'ay'
+          end
       end.strip
   end
 end
